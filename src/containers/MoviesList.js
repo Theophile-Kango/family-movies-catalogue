@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import spinner from './../images/spinner.gif';
 
 const MoviesList = props => {
     const [loadedChars, setLoadedChars] = useState([]);
@@ -33,7 +34,7 @@ const MoviesList = props => {
           });
       }, []);
     
-      let content = <p>Loading characters...</p>;
+      let content = <img src={spinner} alt="loading" />;
     
       if (!isLoading && loadedChars && loadedChars.length > 0) {
         content = (
@@ -52,9 +53,7 @@ const MoviesList = props => {
             </select>
           </div>
         );
-      } else if (!isLoading && (!loadedChars || loadedChars.length === 0)) {
-        content = <p>Could not fetch any data.</p>;
-      }
+      } 
       return content;
 }
 

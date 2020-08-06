@@ -1,5 +1,5 @@
 import React from 'react';
-import MoviesList from './../container/MoviesList';
+import MoviesList from './../containers/MoviesList';
 import './../App.css';
 
 const App = () => {

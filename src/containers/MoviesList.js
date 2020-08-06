@@ -27,10 +27,7 @@ const MoviesList = props => {
                 ))}   
             </select>
             {loadedChars.map(char => (
-                <Movie
-                  key = {char.id} 
-                  object = {char} 
-                />
+                <Movie key = {char.id} object = {char} />
             ))}
           </div>
         );

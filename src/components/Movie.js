@@ -20,9 +20,9 @@ const Movie = ( { object } ) => {
                 <li>{id}</li>
                 <li>{popularity}</li>
                 <li>{vote_count}</li>
-                <li>{poster_path}</li>
+                <li><img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} /></li>
                 <li>{adult}</li>
-                <li>{backdrop_path}</li>
+                <li><img src={`https://image.tmdb.org/t/p/w300${backdrop_path}`} alt={title} /></li>
                 <li>{original_language}</li>
                 <li>{title}</li>
                 <li>{overview}</li>

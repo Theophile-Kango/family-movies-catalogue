@@ -21,7 +21,7 @@ const MoviesList = props => {
                 className={props.side}
             >
                 {loadedChars.map(char => (
-                <option key={char.id} value={char.id}>
+                <option key={char.id} value={char.release_date}>
                     {char.release_date.split('-')[0]}
                 </option>
                 ))}   

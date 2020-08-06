@@ -1,38 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import spinner from './../images/spinner.gif';
+import moviesData from './moviesData';
+import Movie from './../components/Movie';
 
 const MoviesList = props => {
     const [loadedChars, setLoadedChars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     
-    useEffect(() => {
-        console.log('useEffect runs');
-        setIsLoading(true);
-        const key = '3b768dc47bb8d9b1c7d61697414b1e93&query';
-        const api = `https://api.themoviedb.org/3/search/movie?api_key=${key}=Action`;
-        fetch(api)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Failed to fetch.');
-            }
-            return response.json();
-          })
-          .then(charData => {
-            const selectedCharacters = charData.results;
-    
-            setIsLoading(false);
-            setLoadedChars(
-              selectedCharacters.map((char, index) => ({
-                name: char.release_date.split('-')[0],
-                id: index
-              }))
-            );
-          })
-          .catch(err => {
-            console.log(err);
-            setIsLoading(false);
-          });
-      }, []);
+     useEffect(() => moviesData(setIsLoading, setLoadedChars), []);
     
       let content = <img src={spinner} alt="loading" />;
     
@@ -47,10 +22,16 @@ const MoviesList = props => {
             >
                 {loadedChars.map(char => (
                 <option key={char.id} value={char.id}>
-                    {char.name}
+                    {char.release_date.split('-')[0]}
                 </option>
-                ))}
+                ))}   
             </select>
+            {loadedChars.map(char => (
+                <Movie
+                  key = {char.id} 
+                  object = {char} 
+                />
+            ))}
           </div>
         );
       } 

@@ -1,33 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import spinner from './../images/spinner.gif';
 import moviesData from './moviesData';
-import Movie from './../components/Movie';
 
-const MoviesList = props => {
+
+const themesMovies = props => {
+    const themes = ['Love','Action','Sacrifice','Good','Death','Family','Reason','Faith']
     const [loadedChars, setLoadedChars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     
      useEffect(() => moviesData(setIsLoading, setLoadedChars), []);
     
       let content = <img src={spinner} alt="loading" />;
-      const themes = ['Love','Action','Sacrifice','Good','Death','Family','Reason','Faith'];
     
       if (!isLoading && loadedChars && loadedChars.length > 0) {
         content = (
           <div>
-            <span>Select a theme</span>
-            <select
-                onChange={props.onCharSelect}
-                value={props.selectedChar}
-                className={props.side}
-            >
-                {themes.map(theme => (
-                <option key={theme} value={theme}>
-                    {theme}
-                </option>
-                ))}   
-            </select><br />
-            <span>Production Year</span>
+            <span>Movies themes</span>
             <select
                 onChange={props.onCharSelect}
                 value={props.selectedChar}
@@ -48,4 +36,4 @@ const MoviesList = props => {
       return content;
 }
 
-export default MoviesList;
+export default themesMovies;

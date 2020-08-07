@@ -6,7 +6,7 @@ const ThemesMovies = props => {
 
     return(
         <div>
-            <span>Select a theme</span>
+            <h3>Select a theme</h3>
             <select
                 onChange={props.onThemeSelect}
                 value={props.theme}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addMovie } from '../actions/index';
 import { filterMovie } from './../actions/index';
 import { filterMovies } from './../reducers/movies';
 import { filter } from './../reducers/movies';
@@ -17,6 +18,8 @@ const MoviesList = props => {
      useEffect(() => moviesData(setIsLoading, setLoadedChars, props.theme), [props.theme]);
     
       let content = <img src={spinner} alt="loading" />;
+
+      addMovie(loadedMovies);
 
       if (!isLoading && loadedMovies && loadedMovies.length > 0) {
         content = (
@@ -48,5 +51,10 @@ MoviesList.propTypes = {
   onThemeSelect: PropTypes.func.isRequired,
   handleFilterChange: PropTypes.func.isRequired
 };
+
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

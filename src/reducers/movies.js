@@ -9,6 +9,7 @@ const filterMovies = (filter, movies) => {
   if (filter !== 'All') {
     const filtered = movies.filter(movie => movie.release_date.split('-')[0] === filter);
     return filtered;
+
   }
   return movies;
 };

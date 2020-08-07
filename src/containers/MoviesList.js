@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import spinner from './../images/spinner.gif';
 import moviesData from './moviesData';
 import Movie from './../components/Movie';
@@ -6,23 +7,25 @@ import Movie from './../components/Movie';
 const MoviesList = props => {
     const [loadedChars, setLoadedChars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    //console.log(props.theme)
     
-     useEffect(() => moviesData(setIsLoading, setLoadedChars), []);
+     useEffect(() => moviesData(setIsLoading, setLoadedChars, props.theme), [props.theme]);
     
       let content = <img src={spinner} alt="loading" />;
       const themes = ['Love','Action','Sacrifice','Good','Death','Family','Reason','Faith'];
-    
+
       if (!isLoading && loadedChars && loadedChars.length > 0) {
         content = (
           <div>
             <span>Select a theme</span>
             <select
-                onChange={props.onCharSelect}
-                value={props.selectedChar}
+                onChange={props.onThemeSelect}
+                value={props.theme}
                 className={props.side}
             >
                 {themes.map(theme => (
-                <option key={theme} value={theme}>
+                <option key={theme}>
                     {theme}
                 </option>
                 ))}   
@@ -47,5 +50,10 @@ const MoviesList = props => {
       } 
       return content;
 }
+
+MoviesList.propTypes = {
+  theme: PropTypes.string.isRequired,
+  onThemeSelect: PropTypes.func.isRequired,
+};
 
 export default MoviesList;

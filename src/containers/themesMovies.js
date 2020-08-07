@@ -8,7 +8,7 @@ const themesMovies = props => {
     const [loadedChars, setLoadedChars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     
-     useEffect(() => moviesData(setIsLoading, setLoadedChars), []);
+     useEffect(() => moviesData(setIsLoading, setLoadedChars, props.theme), []);
     
       let content = <img src={spinner} alt="loading" />;
     

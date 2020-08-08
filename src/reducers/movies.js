@@ -1,7 +1,7 @@
 import * as actions from './actionTypes';
 
 const movies = (state = [], action) => {
-  if (action.type === actions.ADD_MOVIE) return [...state, action.movie];
+  if (action.type === actions.ADD_MOVIE) return [...action.movie];
   return state;
 };
 

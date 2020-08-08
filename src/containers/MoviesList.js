@@ -17,9 +17,7 @@ const MoviesList = props => {
     
      useEffect(() => moviesData(setIsLoading, setLoadedChars, props.theme), [props.theme]);
     
-      let content = <img src={spinner} alt="loading" />;
-
-      addMovie(loadedMovies);
+      let content = <img src={spinner} alt="loading" />
 
       if (!isLoading && loadedMovies && loadedMovies.length > 0) {
         content = (
@@ -42,6 +40,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleFilterChange: year => dispatch(filterMovie(year)),
+  addMovie: movie => dispatch(addMovie(movie)),
 });
 
 MoviesList.propTypes = {
@@ -49,11 +48,8 @@ MoviesList.propTypes = {
   filter: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   onThemeSelect: PropTypes.func.isRequired,
-  handleFilterChange: PropTypes.func.isRequired
-};
-
-BooksForm.propTypes = {
-  createBook: PropTypes.func.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
+  addMovie: PropTypes.func.isRequired,
 };
 
 

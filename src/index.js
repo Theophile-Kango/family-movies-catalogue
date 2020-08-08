@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import './index.css';
 import reducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-const STATE = { movies: [] };
 
-const store = createStore(reducer, STATE);
+const initialState = {};
+const middleware = [thunk];
+const store = createStore(reducer, initialState, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <Provider store={store}>

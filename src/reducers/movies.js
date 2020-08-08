@@ -4,7 +4,6 @@ const initialState = {
   items: [],
 }
 const movies = (state = initialState, action) => {
-  //if (action.type === actions.FETCH_MOVIES)  return { ...action.data };
   switch(action.type){
     case actions.FETCH_MOVIES:
       return { items: action.data }

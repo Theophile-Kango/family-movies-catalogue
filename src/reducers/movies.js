@@ -1,8 +1,16 @@
 import * as actions from './actionTypes';
 
-const movies = (state = [], action) => {
-  if (action.type === actions.ADD_MOVIE) return [...action.movie];
-  return state;
+const initialState = {
+  items: [],
+}
+const movies = (state = initialState, action) => {
+  //if (action.type === actions.FETCH_MOVIES)  return { ...action.data };
+  switch(action.type){
+    case actions.FETCH_MOVIES:
+      return { items: action.data }
+    default:
+      return state;
+    }
 };
 
 const filterMovies = (filter, movies) => {

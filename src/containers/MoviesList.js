@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMovie } from '../actions/index';
@@ -10,7 +10,9 @@ import YearsFilter from './../components/YearsFilter';
 
 const MoviesList = props => {
 
-    useEffect(() => props.getMovie(), []);
+    const {getMovie} = props;
+   
+    useEffect(() => getMovie(), [getMovie]);
     
       let content = <img src={spinner} alt="loading" />;
       const { movies: {items: {results}}} = props;
@@ -42,7 +44,8 @@ const mapDispatchToProps = dispatch => ({
 MoviesList.propTypes = {
   movies: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
-  handleFilterChange: PropTypes.func.isRequired
+  handleFilterChange: PropTypes.func.isRequired,
+  getMovie: PropTypes.PropTypes.func.isRequired
 };
 
 

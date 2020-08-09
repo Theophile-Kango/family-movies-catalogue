@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 const YearsFilter = (props) => {
 
+  const { handleFilterChange } = props;
+
   const yearSelectHandler = useCallback(event => {
-    props.handleFilterChange(event.target.value);
-  }, [props.handleFilterChange]);
+    handleFilterChange(event.target.value);
+  }, [handleFilterChange]);
   
   return (
     <div>

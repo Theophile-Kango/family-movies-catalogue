@@ -22,7 +22,7 @@ const MoviesList = props => {
               <YearsFilter loadedMovies={results} handleFilterChange={props.handleFilterChange} />
               {
                   filterMovies(props.filter, results).map(char => (
-                   <Poster key = {char.id} object = {char} />
+                    <Poster key={char.id} object={char} handleClick={props.handleClick} />
                 ))
               }
             </div>
@@ -45,7 +45,8 @@ MoviesList.propTypes = {
   movies: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
   handleFilterChange: PropTypes.func.isRequired,
-  getMovie: PropTypes.PropTypes.func.isRequired
+  getMovie: PropTypes.PropTypes.func.isRequired,
+  handleClick: PropTypes.PropTypes.func.isRequired
 };
 
 

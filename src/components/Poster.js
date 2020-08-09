@@ -9,23 +9,29 @@ import {
 import Movie from './Movie';
 
 const Poster = ( props ) => {
+
     const {
         object: {
             id,  
             poster_path,  
-            title, 
-        } 
+            title,
+        },
+        onClick
     } = props;
     
-    const noSpaces = title.split(' ').join('');
+    const onClickHandle = useCallback(event => {
+        onClick(event.target.id);
+    }, [onClick]);
 
+    const noSpaces = title.split(' ').join('');
+    
     return (
         <Router> 
             <div>
                 <Link to={{pathname: `/${noSpaces}`}}><img key={id} src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} /></Link>
                 <Switch>
                     <Route exact path="/:noSpaces">
-                        <Movie object={props.object} />
+                        <Movie object={props.object} onClick={onClickHandle} />
                     </Route>
                 </Switch>
             </div>

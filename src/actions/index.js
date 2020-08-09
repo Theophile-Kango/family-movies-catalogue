@@ -1,11 +1,6 @@
 import * as actions from '../reducers/actionTypes';
 import fetchMovies from './getActions';
 
-// export const addMovie = movie => ({
-//   type: actions.FETCH_MOVIES,
-//   movie,
-// });
-
 export const getMovie = () => dispatch => {
   fetchMovies().then(data => {
     dispatch({

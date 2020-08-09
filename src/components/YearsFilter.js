@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React, { useCallback }  from 'react';
 import PropTypes from 'prop-types';
 
 const YearsFilter = (props) => {
 
-   const [selectedYear, setSelectedYear] = useState('All');
-
-  const yearSelectHandler = event => {
-    const year = event.target.value;
-    setSelectedYear(year);
-  };
-
+  const yearSelectHandler = useCallback(event => {
+    props.handleFilterChange(event.target.value);
+  }, [props.handleFilterChange]);
+  
   return (
     <div>
       <h3>Production Year</h3>
         <select
             onChange={yearSelectHandler}
-            value={selectedYear}
         >
             <option>All</option>
             {props.loadedMovies.map(elt => elt.release_date.split('-')[0])

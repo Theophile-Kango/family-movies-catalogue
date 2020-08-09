@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import { getMovie } from '../actions/index';
 import { filterMovie } from './../actions/index';
 import { filterMovies } from './../reducers/movies';
-import { filter } from './../reducers/movies';
 import spinner from './../images/spinner.gif';
-import fetchMovies from './../actions/getActions';
 import Movie from './../components/Movie';
 import YearsFilter from './../components/YearsFilter';
 
@@ -21,7 +19,7 @@ const MoviesList = props => {
             <div>
               <YearsFilter loadedMovies={results} handleFilterChange={props.handleFilterChange} />
               {
-                  results.map(char => (
+                  filterMovies(props.filter, results).map(char => (
                    <Movie key = {char.id} object = {char} />
                 ))
               }
@@ -38,11 +36,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getMovie: () => dispatch(getMovie()),
-  filterMovies: season => dispatch(filterMovies(season)),
+  handleFilterChange: year => dispatch(filterMovie(year)),
 });
 
 MoviesList.propTypes = {
-  movies: PropTypes.instanceOf(Array).isRequired,
+  movies: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
   handleFilterChange: PropTypes.func.isRequired
 };

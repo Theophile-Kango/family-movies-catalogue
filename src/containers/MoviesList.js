@@ -5,7 +5,7 @@ import { getMovie } from '../actions/index';
 import { filterMovie } from './../actions/index';
 import { filterMovies } from './../reducers/movies';
 import spinner from './../images/spinner.gif';
-import Movie from './../components/Movie';
+import Poster from './../components/Poster';
 import YearsFilter from './../components/YearsFilter';
 
 const MoviesList = props => {
@@ -22,7 +22,7 @@ const MoviesList = props => {
               <YearsFilter loadedMovies={results} handleFilterChange={props.handleFilterChange} />
               {
                   filterMovies(props.filter, results).map(char => (
-                   <Movie key = {char.id} object = {char} />
+                   <Poster key = {char.id} object = {char} />
                 ))
               }
             </div>

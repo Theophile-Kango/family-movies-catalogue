@@ -15,7 +15,3 @@ export const filterMovie = release_date => ({
   release_date,
 });
 
-export const filterById = id => ({
-  type: actions.FILTER_BY_ID,
-  id,
-})

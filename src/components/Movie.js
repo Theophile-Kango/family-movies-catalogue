@@ -1,29 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Movie = ( {location} ) => {
     const { 
-            id,
-            popularity, 
-            vote_count,  
-            adult, 
-            backdrop_path, 
-            original_language, 
-            title, 
-            overview, 
-            release_date
+        popularity, 
+        vote_count, 
+        adult, 
+        backdrop_path, 
+        original_language, 
+        title, 
+        overview, 
+        release_date
     } = location.state;
     return (
         <section>
             <ul>
-                <li>{popularity}</li>
-                <li>{vote_count}</li>
-                <li>Adult: {adult}</li>
+                <li><strong>Popularity: </strong>{popularity}</li>
+                <li><strong>Vote count: </strong>{vote_count}</li>
+                <li><strong>Adult: </strong>{adult === true ? " Yes" : " No"}</li>
                 <li><img src={`https://image.tmdb.org/t/p/w300${backdrop_path}`} alt={title} /></li>
-                <li>{original_language}</li>
-                <li>Title: {title}</li>
-                <li>{overview}</li>
-                <li>{release_date}</li>
+                <li><strong>Original Language: </strong>{original_language}</li>
+                <li><strong>Title: </strong>{title}</li>
+                <li><strong>Overview: </strong>{overview}</li>
+                <li><strong>Realease date: </strong>{release_date}</li>
+                <li>
+                    <Link
+                        to={{
+                            pathname: "/"
+                        }}
+                    >  
+                        Back
+                    </Link>  
+                </li> 
             </ul>
         </section>
     )

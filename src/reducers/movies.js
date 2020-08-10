@@ -21,19 +21,6 @@ const filterMovies = (filter, movies) => {
   return movies;
 };
 
-const filterMovieId = (filter, movies) => {
-  //return movies.filter(movie => movie.id === action);
-  console.log(filter)
-}
-
-const filterId = (state='all', action) => {
-  switch(action.type){
-    case actions.FILTER_BY_ID:
-        return action.id;
-      default:
-        return state;
-  }
-}
 
 const filter = (state = 'All', action) => {
   switch(action.type){
@@ -44,4 +31,4 @@ const filter = (state = 'All', action) => {
   }
 };
 
-export { movies, filter, filterMovies, filterMovieId, filterId };
+export { movies, filter, filterMovies };

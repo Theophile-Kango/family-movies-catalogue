@@ -21,19 +21,27 @@ const filterMovies = (filter, movies) => {
   return movies;
 };
 
-const filterMovieId = (movies, action) => {
-  return movies.filter(movie => movie.id === action);
+const filterMovieId = (filter, movies) => {
+  //return movies.filter(movie => movie.id === action);
+  console.log(filter)
+}
+
+const filterId = (state='all', action) => {
+  switch(action.type){
+    case actions.FILTER_BY_ID:
+        return action.id;
+      default:
+        return state;
+  }
 }
 
 const filter = (state = 'All', action) => {
   switch(action.type){
     case actions.CHANGE_FILTER:
       return action.release_date;
-    case actions.FILTER_BY_ID:
-      return action.id;
     default:
       return state;
   }
 };
 
-export { movies, filter, filterMovies, filterMovieId };
+export { movies, filter, filterMovies, filterMovieId, filterId };

@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Movie = ( { object } ) => {
+const Movie = ( object ) => {
     const { id, 
             popularity, 
-            vote_count, 
-            poster_path, 
+            vote_count,  
             adult, 
             backdrop_path, 
             original_language, 
@@ -20,7 +19,6 @@ const Movie = ( { object } ) => {
                 <li>{id}</li>
                 <li>{popularity}</li>
                 <li>{vote_count}</li>
-                <li><img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} /></li>
                 <li>Adult: {adult}</li>
                 <li><img src={`https://image.tmdb.org/t/p/w300${backdrop_path}`} alt={title} /></li>
                 <li>{original_language}</li>
@@ -33,16 +31,14 @@ const Movie = ( { object } ) => {
 }
 
 Movie.propTypes = {
-    id: PropTypes.string,
-    popularity: PropTypes.string,
-    vote_count: PropTypes.string,
-    poster_path: PropTypes.string,
-    adult: PropTypes.bool,
-    backdrop_path: PropTypes.string,
-    original_language: PropTypes.string,
-    title: PropTypes.string,
-    overview: PropTypes.string,
-    release_date: PropTypes.string
-}.isRequired;
+    id: PropTypes.number.isRequired,
+    popularity: PropTypes.number.isRequired,
+    vote_count: PropTypes.number.isRequired,
+    adult: PropTypes.bool.isRequired,
+    original_language: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired
+};
 
 export default Movie;

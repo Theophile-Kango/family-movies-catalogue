@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import MoviesList from './../containers/MoviesList';
 import './../App.css';
 
 const App = () => {
 
-  const [selectedTheme, setSelectedTheme] = useState('Love');
-
-  const themeSelectHandler = event => {
-    const theme = event.target.value;
-    setSelectedTheme(theme);
-  };
-
   return (
     <div className="App">
-     <MoviesList onThemeSelect={themeSelectHandler} theme={selectedTheme} />
+     <MoviesList />
     </div>
   );
 }

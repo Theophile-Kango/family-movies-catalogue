@@ -40,7 +40,7 @@ const MoviesList = props => {
                         title={char.title} 
                         overview={char.overview} 
                         release_date={char.release_date}
-                        handleClick={() => console.log(char.id)}/>    
+                        handleClick={() => filterMovies(filter, results)[0]}/>    
                     ))
                  }
               </div>

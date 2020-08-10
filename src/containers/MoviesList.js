@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getMovie } from '../actions/index';
 import { filterMovie, filterById } from './../actions/index';
 import { filterMovies, filterMovieId } from './../reducers/movies';
@@ -13,10 +14,6 @@ const MoviesList = props => {
     const {getMovie, handleFilterChange, filter} = props;
    
     useEffect(() => getMovie(), [getMovie]);
-    const hello = () => {
-
-    }
-    
       let content = <img src={spinner} alt="loading" />;
       const { movies: {items: {results}}} = props;
         if(results !== undefined){
@@ -25,22 +22,31 @@ const MoviesList = props => {
               <div>
                 <YearsFilter loadedMovies={results} handleFilterChange={handleFilterChange} /> 
                   {
-                    filterMovies(filter, results).map(char => (   
-                      <Poster 
-                        key={char.id} 
-                        title={char.title} 
-                        id={char.id} 
-                        poster_path={char.poster_path} 
-                         
-                        popularity={char.popularity} 
-                        vote_count={char.vote_count}  
-                        adult={char.adult} 
-                        backdrop_path={char.backdrop_path}
-                        original_language={char.original_language} 
-                        title={char.title} 
-                        overview={char.overview} 
-                        release_date={char.release_date}
-                        handleClick={() => filterMovies(filter, results)[0]}/>    
+                    filterMovies(filter, results).map(movie => ( 
+                      <Link
+                        key={movie.id}
+                        to={{
+                          pathname: `/${movie.title.split(' ').join('')}`,
+                          state: {
+                            id: movie.id,
+                            popularity: movie.popularity, 
+                            vote_count: movie.vote_count,  
+                            adult: movie.adult, 
+                            backdrop_path: movie.backdrop_path, 
+                            title: movie.title,
+                            original_language: movie.original_language, 
+                            overview: movie.overview, 
+                            release_date: movie.release_date,
+                          }
+                        }}
+                      >  
+                        <Poster 
+                          key={movie.id} 
+                          title={movie.title} 
+                          id={movie.id} 
+                          poster_path={movie.poster_path} 
+                        /> 
+                      </Link>   
                     ))
                  }
               </div>

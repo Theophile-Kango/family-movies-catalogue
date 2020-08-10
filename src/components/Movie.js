@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Movie = ( object ) => {
-    const { id, 
+const Movie = ( {location} ) => {
+    const { 
+            id,
             popularity, 
             vote_count,  
             adult, 
@@ -11,12 +12,10 @@ const Movie = ( object ) => {
             title, 
             overview, 
             release_date
-    } = object;
-
+    } = location.state;
     return (
         <section>
             <ul>
-                <li>{id}</li>
                 <li>{popularity}</li>
                 <li>{vote_count}</li>
                 <li>Adult: {adult}</li>
@@ -31,14 +30,19 @@ const Movie = ( object ) => {
 }
 
 Movie.propTypes = {
-    id: PropTypes.number.isRequired,
-    popularity: PropTypes.number.isRequired,
-    vote_count: PropTypes.number.isRequired,
-    adult: PropTypes.bool.isRequired,
-    original_language: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired
+    location: PropTypes.shape({
+        state: PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            popularity: PropTypes.number.isRequired,
+            vote_count: PropTypes.number.isRequired,
+            adult: PropTypes.bool.isRequired,
+            backdrop_path: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            original_language: PropTypes.string.isRequired,
+            overview: PropTypes.string.isRequired,
+            release_date: PropTypes.string.isRequired
+        }),
+    }).isRequired
 };
 
 export default Movie;

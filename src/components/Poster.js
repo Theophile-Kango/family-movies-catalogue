@@ -1,12 +1,5 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom';
-import Movie from './Movie';
 
 
 const Poster = (  {
@@ -22,33 +15,17 @@ const Poster = (  {
     release_date,
     handleClick
 } ) => {
-    const noSpaces = title.split(' ').join('');
+    
     return (
-        <Router>
-            <Link to={{pathname: `/${noSpaces}`}}>
+        
                 <img  
                     src={`https://image.tmdb.org/t/p/w300${poster_path}`} 
                     id={id}
                     alt={title}
                     onClick={handleClick} 
                 />
-            </Link>
-            <Switch>
-                <Route exact path="/:noSpaces">
-                    <Movie 
-                        id={id} 
-                        popularity={popularity} 
-                        vote_count={vote_count}  
-                        adult={adult} 
-                        backdrop_path={backdrop_path}
-                        original_language={original_language} 
-                        title={title} 
-                        overview={overview} 
-                        release_date={release_date}
-                    />
-                </Route>
-            </Switch> 
-        </Router>  
+            
+          
     )
 }
 

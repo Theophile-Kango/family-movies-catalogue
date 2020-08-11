@@ -1,4 +1,6 @@
 .App {
-  background: rgb(241, 244, 248);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 

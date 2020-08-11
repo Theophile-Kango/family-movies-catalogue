@@ -8,47 +8,50 @@ import { filterMovies} from './../reducers/movies';
 import spinner from './../images/spinner.gif';
 import Poster from './../components/Poster';
 import YearsFilter from './../components/YearsFilter';
+import styles from './../components/styles/posterStyles.module.scss'
 
 const MoviesList = props => {
 
     const {getMovie, handleFilterChange, filter} = props;
    
     useEffect(() => getMovie(), [getMovie]);
-      let content = <img src={spinner} alt="loading" />;
+      let content = <img id={styles.loading} src={spinner} alt="loading" />;
       const { movies: {items: {results}}} = props;
         if(results !== undefined){
           content = ( 
             
-              <div>
+              <div className={styles.main}>
                 <YearsFilter loadedMovies={results} handleFilterChange={handleFilterChange} /> 
-                  {
-                    filterMovies(filter, results).map(movie => ( 
-                      <Link
-                        key={movie.id}
-                        to={{
-                          pathname: `/${movie.title.split(' ').join('')}`,
-                          state: {
-                            id: movie.id,
-                            popularity: movie.popularity, 
-                            vote_count: movie.vote_count,  
-                            adult: movie.adult, 
-                            backdrop_path: movie.backdrop_path, 
-                            title: movie.title,
-                            original_language: movie.original_language, 
-                            overview: movie.overview, 
-                            release_date: movie.release_date,
-                          }
-                        }}
-                      >  
-                        <Poster 
-                          key={movie.id} 
-                          title={movie.title} 
-                          id={movie.id} 
-                          poster_path={movie.poster_path} 
-                        /> 
-                      </Link>   
-                    ))
-                 }
+                <div>
+                    {
+                      filterMovies(filter, results).map(movie => ( 
+                        <Link
+                          key={movie.id}
+                          to={{
+                            pathname: `/${movie.title.split(' ').join('')}`,
+                            state: {
+                              id: movie.id,
+                              popularity: movie.popularity, 
+                              vote_count: movie.vote_count,  
+                              adult: movie.adult, 
+                              backdrop_path: movie.backdrop_path, 
+                              title: movie.title,
+                              original_language: movie.original_language, 
+                              overview: movie.overview, 
+                              release_date: movie.release_date,
+                            }
+                          }}
+                        >  
+                          <Poster 
+                            key={movie.id} 
+                            title={movie.title} 
+                            id={movie.id} 
+                            poster_path={movie.poster_path} 
+                          /> 
+                        </Link>   
+                      ))
+                    }
+                 </div>
               </div>
             
             )

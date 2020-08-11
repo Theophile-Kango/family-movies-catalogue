@@ -1,5 +1,6 @@
 import React, { useCallback }  from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles/posterStyles.module.scss';
 
 const YearsFilter = (props) => {
 
@@ -10,10 +11,13 @@ const YearsFilter = (props) => {
   }, [handleFilterChange]);
   
   return (
-    <div>
-      <h3>Production Year</h3>
+    <div className={styles.header}>
+      <h1>Movies Catalogue</h1>
+      <div>
+        <label htmlFor="production" >Select By Production Year</label>
         <select
-            onChange={yearSelectHandler}
+          id="production"
+          onChange={yearSelectHandler}
         >
             <option>All</option>
             {props.loadedMovies.map(elt => elt.release_date.split('-')[0])
@@ -25,6 +29,7 @@ const YearsFilter = (props) => {
                 </option>
             ))}   
         </select>
+      </div>
     </div>
   );
 }

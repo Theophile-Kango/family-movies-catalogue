@@ -24,7 +24,7 @@ $blue: #4386bf;
             color: $blue;
             text-align: center;
         }
-        label{
+        span{
             margin-right: 10px;
         }
         select{
@@ -40,6 +40,9 @@ $blue: #4386bf;
         .border{
             border: 3px solid black;
             margin-right: 5px;
+            &:hover{
+                border: 5px solid $blue;
+            }
         }
     }
 }

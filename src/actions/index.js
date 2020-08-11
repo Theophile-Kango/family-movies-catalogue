@@ -10,8 +10,7 @@ export const getMovie = () => dispatch => {
   });
 };
 
-export const filterMovie = release_date => ({
+export const filterMovie = releaseDate => ({
   type: actions.CHANGE_FILTER,
-  release_date,
+  releaseDate,
 });
-

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './styles/movieStyles.module.scss';
 
 const Movie = ( {location} ) => {
     const { 
@@ -14,14 +15,14 @@ const Movie = ( {location} ) => {
         release_date
     } = location.state;
     return (
-        <section>
+        <section className={styles.section}>
             <ul>
+                <li><strong id={styles.title}>{title}</strong></li>
+                <li><img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt={title} /></li>
                 <li><strong>Popularity: </strong>{popularity}</li>
                 <li><strong>Vote count: </strong>{vote_count}</li>
                 <li><strong>Adult: </strong>{adult === true ? " Yes" : " No"}</li>
-                <li><img src={`https://image.tmdb.org/t/p/w300${backdrop_path}`} alt={title} /></li>
                 <li><strong>Original Language: </strong>{original_language}</li>
-                <li><strong>Title: </strong>{title}</li>
                 <li><strong>Overview: </strong>{overview}</li>
                 <li><strong>Realease date: </strong>{release_date}</li>
                 <li>

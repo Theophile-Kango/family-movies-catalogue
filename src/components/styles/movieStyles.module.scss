@@ -1,0 +1,40 @@
+$blue: #4386bf;
+
+.section{
+    width: 600px;
+    background: rgb(192, 226, 238);
+    ul{
+        li{
+            list-style: none;
+            margin-bottom: 15px;
+            width: 500px;
+            line-height: 25px;
+            strong{
+                color: $blue;
+            }
+            #title{
+                display: inline-block;
+                width: 100%;
+                font-size: 30px;
+                text-align: center;
+            }
+            img{
+                margin: 15px 0;
+            }
+            a{
+                background: $blue;
+                font-weight: bold;
+                display: inline-block;
+                width: 100px;
+                padding: 5px 10px;
+                margin-top: 20px;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                &:hover{
+                    background: #125086;
+                }
+            }
+        }
+    }
+}

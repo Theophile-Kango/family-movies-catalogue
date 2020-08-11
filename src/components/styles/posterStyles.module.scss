@@ -1,48 +1,56 @@
 @mixin flexColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 $blue: #4386bf;
 
-#loading{
-    margin-top: 20%;
+#loading {
+  margin-top: 20%;
 }
 
-.main
-{
-    background: rgb(192, 226, 238);
-    min-height: 100vh;
+.main {
+  background: rgb(192, 226, 238);
+  min-height: 100vh;
+
+  @include flexColumn();
+
+  min-width: 100%;
+  box-sizing: border-box;
+
+  .header {
     @include flexColumn();
-    min-width: 100%;
-    box-sizing: border-box;
-    .header{
-        @include flexColumn();
-        h1{
-            color: $blue;
-            text-align: center;
-        }
-        span{
-            margin-right: 10px;
-        }
-        select{
-            border: 1px solid $blue;
-            outline: $blue;
-            margin-bottom: 20px;
-        }
+
+    h1 {
+      color: $blue;
+      text-align: center;
     }
-    div{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        .border{
-            border: 3px solid black;
-            margin-right: 5px;
-            &:hover{
-                border: 5px solid $blue;
-            }
-        }
+
+    span {
+      margin-right: 10px;
     }
+
+    select {
+      border: 1px solid $blue;
+      outline: $blue;
+      margin-bottom: 20px;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .border {
+      border: 3px solid black;
+      margin-right: 5px;
+
+      &:hover {
+        border: 5px solid $blue;
+      }
+    }
+  }
 }

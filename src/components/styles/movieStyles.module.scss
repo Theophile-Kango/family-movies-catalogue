@@ -1,64 +1,73 @@
 $blue: #4386bf;
 
-.section{
-    width: 600px;
-    min-height: 100vh;
-    margin: 20px 0;
-    background: rgb(192, 226, 238);
-    ul{
-        li{
-            list-style: none;
-            margin-bottom: 15px;
-            width: 500px;
-            line-height: 25px;
-            strong{
-                color: $blue;
-            }
-            #title{
-                margin-top: 20px;
-                display: inline-block;
-                width: 100%;
-                font-size: 25px;
-                text-align: center;
-            }
-            img{
-                margin: 15px 0;
-            }
-            a{
-                background: $blue;
-                font-weight: bold;
-                display: inline-block;
-                width: 100px;
-                padding: 5px 10px;
-                margin-top: 20px;
-                color: white;
-                text-decoration: none;
-                text-align: center;
-                &:hover{
-                    background: #125086;
-                }
-            }
+.section {
+  width: 600px;
+  min-height: 100vh;
+  margin: 20px 0;
+  background: rgb(192, 226, 238);
+
+  ul {
+    li {
+      list-style: none;
+      margin-bottom: 15px;
+      width: 500px;
+      line-height: 25px;
+
+      strong {
+        color: $blue;
+      }
+
+      #title {
+        margin-top: 20px;
+        display: inline-block;
+        width: 100%;
+        font-size: 25px;
+        text-align: center;
+      }
+
+      img {
+        margin: 15px 0;
+      }
+
+      a {
+        background: $blue;
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+        padding: 5px 10px;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover {
+          background: #125086;
         }
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 610px) {
-    .section {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        ul{
-            li{
-                width: 93%; 
-                #title{
-                    width: 93%;
-                } 
-                img{
-                    width: 93%;
-                }
-            }
+  .section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+
+    ul {
+      li {
+        width: 93%;
+
+        #title {
+          width: 93%;
         }
+
+        img {
+          width: 93%;
+        }
+      }
     }
+  }
 }

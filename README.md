@@ -12,7 +12,7 @@ Family Movies Catalogue is a catalogue of some movies with the family theme, tha
 
 ## Live Demo
 
-[Click here](https://redux-bookstore.netlify.app/)
+[Click here](https://family-movies-catalogue.netlify.app/)
 
 
 ## Getting Started
@@ -40,10 +40,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Built With
 
 - Node.js
-- React
+- React Hooks
 - Redux
 - npm
-- CSS
+- CSS/SCSS
 - ES6
 And deploy to netlify
 
@@ -63,7 +63,7 @@ And deploy to netlify
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Theophile-Kango/react-calculator/issues)
+Feel free to check the [issues page](https://github.com/Theophile-Kango/family-movies-catalogue/issues)
 ## Show your support
 
 Give a ⭐️  if you like this project!

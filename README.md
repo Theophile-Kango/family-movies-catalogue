@@ -14,6 +14,10 @@ Family Movies Catalogue is a catalogue of some movies with the family theme, tha
 
 [Click here](https://family-movies-catalogue.netlify.app/)
 
+## Video presentation
+
+[Click here](https://www.loom.com/share/6968264108d94ceb967648e8a3f40b2c)
+
 
 ## Getting Started
 - Clone the project to your local machine;

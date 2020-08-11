@@ -3,6 +3,7 @@ $blue: #4386bf;
 .section{
     width: 600px;
     min-height: 100vh;
+    margin: 20px 0;
     background: rgb(192, 226, 238);
     ul{
         li{
@@ -47,6 +48,7 @@ $blue: #4386bf;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 0;
         ul{
             li{
                 width: 93%; 

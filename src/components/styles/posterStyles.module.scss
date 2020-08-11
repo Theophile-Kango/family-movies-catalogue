@@ -22,6 +22,7 @@ $blue: #4386bf;
         @include flexColumn();
         h1{
             color: $blue;
+            text-align: center;
         }
         label{
             margin-right: 10px;

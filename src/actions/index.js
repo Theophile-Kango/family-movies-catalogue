@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as actions from '../reducers/actionTypes';
 import fetchMovies from './getActions';
 
@@ -10,7 +11,7 @@ export const getMovie = () => dispatch => {
   });
 };
 
-export const filterMovie = releaseDate => ({
+export const filterMovie = release_date => ({
   type: actions.CHANGE_FILTER,
-  releaseDate,
+  release_date,
 });

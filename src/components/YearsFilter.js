@@ -12,7 +12,7 @@ const YearsFilter = (props) => {
   
   return (
     <div className={styles.header}>
-      <h1>Movies Catalogue</h1>
+      <h1>Family Movies Catalogue</h1>
       <div>
         <label htmlFor="production" >Select By Production Year</label>
         <select

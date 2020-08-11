@@ -13,6 +13,7 @@ $blue: #4386bf;
 
 .main
 {
+    background: rgb(192, 226, 238);
     @include flexColumn();
     min-width: 100%;
     box-sizing: border-box;

@@ -1,50 +1,74 @@
-import { movies } from '../reducers/movies';
-import FETCH_MOVIES from '../reducers/actionTypes';
+/* eslint-disable camelcase */
+import { movies, filterMovies, filter } from '../reducers/movies';
+import * as actions from '../reducers/actionTypes';
+
+const data = {
+  items: [{
+    id: 491418,
+    popularity: 18.999,
+    voteCount: 1515,
+    adult: false,
+    backdropPath: '/mXowJ0usjsCgI9hM0BSIoTVnKRI.jpg',
+    title: 'Instant Family',
+    originalLanguage: 'en',
+    overview: `When Pete and Ellie decide to start a family, they stumble 
+      into the world of foster care adoption. They hope to take in one small 
+      child but when they meet three siblings, including a rebellious 15 year old girl, 
+      they find themselves speeding from zero to three kids overnight.`,
+    release_date: '2018-11-16',
+  },
+  ],
+};
 
 describe('movies reducer', () => {
-  const data = { 
-      items: [{
-        id: 491418,
-        popularity: 18.999,
-        voteCount: 1515,
-        adult: false,
-        backdropPath: "\/mXowJ0usjsCgI9hM0BSIoTVnKRI.jpg",
-        title: "Instant Family",
-        originalLanguage: "en",
-        overview: `When Pete and Ellie decide to start a family, they stumble 
-        into the world of foster care adoption. They hope to take in one small 
-        child but when they meet three siblings, including a rebellious 15 year old girl, 
-        they find themselves speeding from zero to three kids overnight.`,
-        releaseDate: "2018-11-16",
-      }
-  ]};
-
-  const intialState = { items: []}
+  const intialState = { items: [] };
 
   test('should return the initial state', () => {
     expect(movies(undefined, {})).toEqual(intialState);
   });
 
-  test('should handle FETCH MOVIES', () => {
+  test('should not handle FETCH MOVIES', () => {
     expect(
       movies(intialState, {
-        type: FETCH_MOVIES,
-        data: data,
+        type: actions.FETCH_MOVIES,
+        data,
       }),
     ).not.toEqual(
-        data,
+      data,
     );
 
     expect(
       movies(
         data,
         {
-          type: FETCH_MOVIES,
-          data,
+          type: actions.FETCH_MOVIES,
+          data: data.items,
         },
       ),
     ).toEqual(
       data,
     );
+  });
+});
+
+describe('filter reducer', () => {
+  const { items: [{ release_date }] } = data;
+
+  test('Should only return the release date if we pass the production year', () => {
+    expect(filter('2018',
+      {
+        type: actions.CHANGE_FILTER,
+        release_date,
+      })).toEqual(release_date);
+  });
+});
+
+describe('filterMovies reducer', () => {
+  test("Should not return the data of 2017 because it doesn't exist", () => {
+    expect(filterMovies('2017', data.items)).not.toEqual(data.items);
+  });
+
+  test('Should only return the data of the production year passed', () => {
+    expect(filterMovies('2018', data.items)).toEqual(data.items);
   });
 });

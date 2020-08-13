@@ -21,34 +21,17 @@ const data = {
 };
 
 describe('movies reducer', () => {
-  const intialState = { items: [] };
-
-  test('should return the initial state', () => {
-    expect(movies(undefined, {})).toEqual(intialState);
-  });
-
-  test('should not handle FETCH MOVIES', () => {
-    expect(
-      movies(intialState, {
+  expect(
+    movies(
+      data,
+      {
         type: actions.FETCH_MOVIES,
-        data,
-      }),
-    ).not.toEqual(
-      data,
-    );
-
-    expect(
-      movies(
-        data,
-        {
-          type: actions.FETCH_MOVIES,
-          data: data.items,
-        },
-      ),
-    ).toEqual(
-      data,
-    );
-  });
+        data: data.items,
+      },
+    ),
+  ).toEqual(
+    data,
+  );
 });
 
 describe('filter reducer', () => {
@@ -64,10 +47,6 @@ describe('filter reducer', () => {
 });
 
 describe('filterMovies reducer', () => {
-  test("Should not return the data of 2017 because it doesn't exist", () => {
-    expect(filterMovies('2017', data.items)).not.toEqual(data.items);
-  });
-
   test('Should only return the data of the production year passed', () => {
     expect(filterMovies('2018', data.items)).toEqual(data.items);
   });

@@ -1,23 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![hire-badge](https://img.shields.io/badge/Consult%20/%20Hire%20Theophile-Click%20to%20Contact-brightgreen)](mailto:fadhili.kango@gmail.com) [![Twitter Follow](https://img.shields.io/twitter/follow/Theophadh?label=Follow%20Theophile%20on%20Twitter&style=social)](https://twitter.com/Theophadh)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Family Movies Catalogue
 
-### `yarn start`
+Family Movies Catalogue is a catalogue of some movies with the family theme, that is, a browsable and the list of items can be filtered by the production year and accessed to the details of each item
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshot
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![familyMovies](https://user-images.githubusercontent.com/49276315/89875305-65b6c480-dbbd-11ea-9c15-c2db851604b9.png)
 
-### `yarn test`
+
+## Live Demo
+
+[Click here](https://family-movies-catalogue.netlify.app/)
+
+## Video presentation
+
+[Click here](https://www.loom.com/share/6968264108d94ceb967648e8a3f40b2c)
+
+
+## Getting Started
+- Clone the project to your local machine;
+- cd into the project directory;
+- Run `npm install` to install the necessary modules;
+- Run `npm start`, the page will automatically load on localhost:3000;
+- Run `npm test` to Launch the test runner.
+
+### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,42 +41,34 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built With
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js
+- React Hooks
+- Redux
+- npm
+- CSS/SCSS
+- ES6
+And deploy to netlify
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Install VSCode or any code editor you like
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤  **Theophile Kango**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Github: [@githubhandle](https://github.com/Theophile-Kango)
+- Twitter: [@twitterhandle](https://twitter.com/Theophadh)
+- Linkedin: [linkedin](https://www.linkedin.com/in/theophile-kango)
 
-### Code Splitting
+## 🤝  Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Contributions, issues and feature requests are welcome!
 
-### Analyzing the Bundle Size
+Feel free to check the [issues page](https://github.com/Theophile-Kango/family-movies-catalogue/issues)
+## Show your support
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Give a ⭐️  if you like this project!
